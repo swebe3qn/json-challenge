@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import JsonTree from "./JsonTree";
 
 const JsonViewer = ({json}) => {
-    let [path, setPath] = useState('')
+    const [path, setPath] = useState('')
 
     return (
         <>
