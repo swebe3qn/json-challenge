@@ -42,7 +42,9 @@ const JsonTree = ({json, updatePath}) => {
                             )
                             : (
                                 <>
-                                    <span className="key" onClick={() => updatePath(`${path}${path && '.'}${key}`)}>{key}</span>: {displayValue(obj[key])}
+                                    <span className="key" onClick={() => updatePath(`${path}${path && '.'}${key}`)}>{key}</span>
+                                    {': '}
+                                    {displayValue(obj[key])}
                                 </>
                             )
                         }
