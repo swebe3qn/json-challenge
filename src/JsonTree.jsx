@@ -18,7 +18,7 @@ const JsonTree = ({json, updatePath}) => {
                     <div className="indent" key={`obj-${path}-${key}-${i}`}>
                         {Array.isArray(obj[key]) 
                             ? (
-                                <div>
+                                <>
                                     {key}:
                                     {' ['}
                                     {obj[key].map((el, i) => (
@@ -30,24 +30,23 @@ const JsonTree = ({json, updatePath}) => {
                                         </div>
                                     ))}
                                     {']'}
-                                </div>
+                                </>
                             )
                             : typeof obj[key] === 'object' ? (
-                                <div>
+                                <>
                                     {key}:
                                     {' {'}
                                     {display(obj[key], `${path}${path && '.'}${key}`)}
                                     {'}'}
-                                    {i < Object.keys(obj).length - 1 && ','}
-                                </div>
+                                </>
                             )
                             : (
-                                <div>
+                                <>
                                     <span className="key" onClick={() => updatePath(`${path}${path && '.'}${key}`)}>{key}</span>: {displayValue(obj[key])}
-                                    {i < Object.keys(obj).length - 1 && ','}
-                                </div>
+                                </>
                             )
                         }
+                        {i < Object.keys(obj).length - 1 && ','}
                     </div>
                 ))}
             </div>
